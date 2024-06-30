@@ -1,0 +1,33 @@
+- hosts: all
+  become_user: daniilrubin
+
+  pre_tasks:
+    - name: "Install packages"
+      package: "name={{ item }} state=present"
+      with_items:
+        - vim
+        - jq
+        - tmux
+      become: true
+      become_user: "{{ root_user }}"
+
+  tasks:
+    - name: "Copy .vimrc"
+      copy:
+        src: ./.vimrc
+        dest: ~/.vimrc
+    
+    - name: "Copy .tmux.conf"
+      copy:
+        src: ./.tmux.conf
+        dest: ~/.tmux.conf
+    
+    - name: "Verify .ssh exists"
+      ansible.builtin.file:
+        path: ~/.ssh
+        state: directory
+    
+    - name: "Copy ~/.ssh/rc"
+      copy:
+        src: ./.ssh/rc
+        dest: ~/.ssh/rc
