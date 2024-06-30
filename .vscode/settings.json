@@ -1,0 +1,46 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontSize": 13,
+    "editor.suggest.insertMode": "replace",
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.stickyScroll.enabled": false,
+    "zenMode.hideLineNumbers": false,
+    "files.autoSave": "afterDelay",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "line",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "vim.leader": "<space>",
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(200, 100, 100, 0.5)",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["leader", "i"],
+            "commands": ["extension.toggleBool"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"]
+        },
+        {
+            "before": ["g", "r"],
+            "commands": ["editor.action.rename"]
+        },
+        {
+            "before": ["leader", "h"],
+            "commands": ["editor.action.showHover"]
+        }
+    ],
+    "animations.Install-Method": "Apc Customize UI++",
+    "update.mode": "manual",
+    "apc.imports": [
+        "file:///Users/daniilrubin/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+    ],
+    "workbench.colorTheme": "Atom One Dark",
+    "security.promptForRemoteFileProtocolHandling": false
+}
