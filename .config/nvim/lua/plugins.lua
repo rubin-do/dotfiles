@@ -193,7 +193,7 @@ require('lazy').setup({
   },
 
   {
-    'nvim-tree/nvim-tree.lua',
+    'https://github.com/kyazdani42/nvim-tree.lua',
     opts = {},
   },
 
@@ -637,10 +637,13 @@ require('lazy').setup({
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
-  },
-
-  { -- Transparency
-    'xiyaowong/transparent.nvim',
+    opts = {
+      transparent = true,
+      plugins = {
+        'nvim-tree',
+        'which-key',
+      },
+    },
   },
 
   -- Highlight todo, notes, etc in comments
