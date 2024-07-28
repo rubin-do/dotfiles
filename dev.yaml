@@ -5,46 +5,14 @@
     - name: "Install packages"
       package: "name={{ item }} state=present"
       with_items:
-        - vim
+        - nvim
         - jq
         - tmux
+        - stow
       become: true
       become_user: "{{ root_user }}"
 
   tasks:
-    - name: "Copy .vimrc"
-      copy:
-        src: ./.vimrc
-        dest: ~/.vimrc
-    
-    - name: "Copy .tmux.conf"
-      copy:
-        src: ./.tmux.conf
-        dest: ~/.tmux.conf
-    
-    - name: "Verify .ssh exists"
-      ansible.builtin.file:
-        path: ~/.ssh
-        state: directory
-    
-    - name: "Copy .ssh/rc"
-      copy:
-        src: ./.ssh/rc
-        dest: ~/.ssh/rc
+    - name: Stow dotfiles
+      command: stow -v --ignore='(vscode|yaml|ini|cfg|\.sh)' .
 
-    - name: "Check if vscode is present"
-      ansible.builtin.stat:
-        path: "~/Library/Application Support/Code/"
-      register: vscode
-    
-    - name: "Copy .vscode/settings.json"
-      copy:
-        src: ./.vscode/settings.json
-        dest: ~/Library/Application Support/Code/User/settings.json
-      when: vscode.stat.exists
-
-    - name: "Copy .vscode/keybindings.json"
-      copy:
-        src: ./.vscode/keybindings.json
-        dest: ~/Library/Application Support/Code/User/keybindings.json
-      when: vscode.stat.exists
