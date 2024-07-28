@@ -641,6 +641,8 @@ require('lazy').setup({
       transparent = true,
       plugins = {
         'nvim-tree',
+        'mini.statusline',
+        'mini.surround',
         'which-key',
       },
     },
