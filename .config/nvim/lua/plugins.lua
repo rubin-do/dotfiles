@@ -141,7 +141,7 @@ require('lazy').setup({
         -- },
         -- pickers = {}
         defaults = {
-          path_display = { 'truncate' },
+          path_display = { 'smart' },
         },
         extensions = {
           ['ui-select'] = {
