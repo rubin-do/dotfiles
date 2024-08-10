@@ -708,6 +708,11 @@ require('lazy').setup({
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
 
+  { -- smoothly navigate vim & tmux
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
+
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
