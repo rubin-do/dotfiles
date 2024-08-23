@@ -458,7 +458,6 @@ require('lazy').setup({
         cmd = { goplsPath },
         cmd_env = { GOFLAGS = '-mod=vendor', CGO_ENABLED = '0', GOPRIVATE = '*.yandex-team.ru,*.yandexcloud.net' },
         capabilities = capabilities,
-        root_dir = lspconfig.util.root_pattern 'ya.make',
         settings = {
           gopls = {
             -- directoryFilters = { '-', '+~/arcadia/strm/trns_manager/', '+~/arcadia/videoplatform' },
