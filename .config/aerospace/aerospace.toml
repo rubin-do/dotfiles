@@ -54,7 +54,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 inner.horizontal = 18
 inner.vertical =   18
 outer.left =       18
-outer.bottom =     18
+outer.bottom = [{ monitor.main = 18 }, { monitor."P24h-10" = 200}, 18]
 outer.top =        18
 outer.right =      18
 
