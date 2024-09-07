@@ -405,6 +405,10 @@ require('lazy').setup({
             },
           },
         },
+        pbls = {
+          root_dir = require('lspconfig').util.root_pattern('.pbls.toml', '.git', 'ya.make'),
+          settings = {},
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -423,10 +427,10 @@ require('lazy').setup({
           table.insert(ensure_installed, k)
         end
       end
-
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
+      vim.list_extend(ensure_installed, { 'pbls' })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
@@ -468,6 +472,12 @@ require('lazy').setup({
             },
           },
         },
+      }
+
+      -- setup pbls
+      -- TODO: move fix mason setup
+      lspconfig.pbls.setup {
+        settings = {},
       }
     end,
   },
@@ -637,6 +647,14 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
     opts = {
+      on_colors = function(colors)
+        colors.comment = '#8F94AD'
+      end,
+      on_highlights = function(highlights, _)
+        highlights.LineNrAbove = { fg = '#91939B' }
+        highlights.LineNr = { fg = '#91939B' }
+        highlights.LineNrBelow = { fg = '#91939B' }
+      end,
       transparent = true,
       plugins = {
         'nvim-tree',
@@ -743,6 +761,12 @@ require('lazy').setup({
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
+  },
+
+  {
+    'm4xshen/hardtime.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+    opts = {},
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
