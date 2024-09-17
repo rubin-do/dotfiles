@@ -23,6 +23,7 @@ return {
         highlights.LineNrAbove = { fg = '#91939B' }
         highlights.LineNr = { fg = '#91939B' }
         highlights.LineNrBelow = { fg = '#91939B' }
+        highlights.MiniStatuslineFilename = { fg = '#C3C8E3' }
       end,
       transparent = true,
       plugins = {

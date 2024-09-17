@@ -273,6 +273,12 @@ return {
               GOFLAGS = '-mod=vendor',
               GOPRIVATE = '*.yandex-team.ru,*.yandexcloud.net',
             },
+            arcadiaIndexDirs = {
+              '/Users/daniilrubin/arcadia/strm/trns_agent',
+              '/Users/daniilrubin/arcadia/strm/trns_manager',
+              '/Users/daniilrubin/arcadia/videoplatform/cloud',
+              -- TODO: add all needed directories
+            },
           },
         },
       }
